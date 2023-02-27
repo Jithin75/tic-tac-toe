@@ -102,6 +102,4 @@ if __name__== "__main__":
     print("Note: Enter the word 'exit' whenever an input field appears to exit the game\n")
     user_input_dimension() # Takes in the dimensions of the grid to play the game
     init_grid()
-    print(grid_dimension)
-    print(grid)
     
