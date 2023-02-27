@@ -1,5 +1,5 @@
 grid_dimension = 3 # Dimension of the tic-tac-toe grid (defaults to 3)
-grid = [['','',''],['','',''],['','','']] # The tic-tac-toe grid (defaults to a 3x3 grid)
+grid = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']] # The tic-tac-toe grid (defaults to a 3x3 grid)
 
 def exit_game():
     '''
@@ -8,6 +8,20 @@ def exit_game():
 
     print("\nThank You for playing!")
     exit(0)
+
+def init_grid():
+    '''
+    Initializes an empty grid
+    '''
+
+    if grid_dimension == 3:
+        return
+    else:
+        global grid
+        grid = []
+        for i in range(grid_dimension): # Appends the below list grid_dimension times
+            grid.append([' ']*grid_dimension) # Appends a list of empty strings and length grid_dimension
+
 
 def user_input_dimension():
     '''
@@ -20,16 +34,16 @@ def user_input_dimension():
     invalid_choice = True
 
     while invalid_choice:
-        c = input("Do you want to play on the standard (3x3) grid or a custom grid [y,n]: ")
+        c = input("Do you want to play on the standard (3x3) grid or a custom grid [s (standard), c (custom)]: ")
         if c.lower() == "exit":
             exit_game()
-        if c not in ['y','n']:
-            print("Invalid Choice! Please either enter y or n")
+        if c not in ['s','c']:
+            print("Invalid Choice! Please either enter s or c")
             continue
         else:
             break
     
-    if c == 'n':
+    if c == 's':
         return
     
     while invalid_digit:
@@ -43,6 +57,8 @@ def user_input_dimension():
             print("Dimension is too small! Please enter a value greater or equal to 3")
             continue
         else:
+
+            global grid_dimension 
             grid_dimension = int(n)
             break
 
@@ -85,4 +101,7 @@ if __name__== "__main__":
     # TODO: Description of the game
     print("Note: Enter the word 'exit' whenever an input field appears to exit the game\n")
     user_input_dimension() # Takes in the dimensions of the grid to play the game
+    init_grid()
+    print(grid_dimension)
+    print(grid)
     
