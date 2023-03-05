@@ -217,6 +217,4 @@ if __name__== "__main__":
     
     # GAME EXIT
     exit_game()
-
-# TODO: Improve the UI to make it more easier and engaging, the above display functions and print statements are a
-#            placeholder for testing and will shall be changed later 
+    
